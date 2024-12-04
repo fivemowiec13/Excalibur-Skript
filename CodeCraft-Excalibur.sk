@@ -1,0 +1,16 @@
+command /codecraft <text>:
+    trigger:
+    is arg-1 is set "excalibur"
+        give player diamond sword of sharpness 1 named "&eExcalibur"
+        set lore of player's tool to "Aktualna ostrość: 1"
+
+on death:
+    if:
+        victim is a player
+        name of attacker's tool is "&6Bardzo ostry miecz"
+        level of sharpness of attacker's tool != 7
+    then:
+        set level of sharpness of attacker's tool to (level of sharpness of attacker's tool + 1)
+        set {new_sharpness} to level of sharpness of attacker's tool
+        set lore of attacker's tool to "Aktualna ostrość: %{new_sharpness}%"
+## Uzytkowanie skryptu z wymazanym autorem jest zabronione i wszelkie udostepnianie skryptu jest karane
